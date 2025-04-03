@@ -75,3 +75,23 @@ chopimg [オプション] <入力ファイル>
 ## ライセンス
 
 MIT License
+
+## Windows 実行可能ファイル（.exe）の作成
+
+Windows 環境では、以下の手順で実行可能ファイル（.exe）を作成できます：
+
+```bash
+# PyInstallerをインストール
+pip install pyinstaller
+
+# 実行可能ファイルを作成
+build_exe.bat
+```
+
+または、以下のコマンドを直接実行することもできます：
+
+```bash
+pyinstaller --onefile --name chopimg --hidden-import core --hidden-import PIL --hidden-import PIL.Image --add-data "core.py;." --exclude-module numpy --exclude-module pandas --exclude-module matplotlib --exclude-module scipy cli.py
+```
+
+作成された実行可能ファイルは `dist/chopimg.exe` にあります。
